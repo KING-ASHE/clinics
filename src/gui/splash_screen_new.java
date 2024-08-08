@@ -144,7 +144,7 @@ public class splash_screen_new extends javax.swing.JFrame {
             
             Class.forName("com.mysql.cj.jdbc.Driver");
             
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/surabe_new", "root", "Corei3diluna09");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/surabe_new", "root", "Lochana5712@");
 //           Connection connection = DriverManager.getConnection("jdbc:mysql://" + ((properties.getPort() == "") ? "" + properties.getHost() + "" : ":" + properties.getHost() + properties.getPort() + "") + "/" + properties.getDatabase(), properties.getUsername(), properties.getPassword());
 
             Statement statement = connection.createStatement();
