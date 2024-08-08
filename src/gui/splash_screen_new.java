@@ -2,7 +2,6 @@
 package gui;
 
 import Model.logs;
-import Model.properties;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import java.awt.Color;
 import java.net.InetSocketAddress;
