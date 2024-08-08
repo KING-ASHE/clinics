@@ -4,7 +4,6 @@
  */
 package gui;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import com.formdev.flatlaf.themes.FlatMacLightLaf;
 /**
  *
  * @author MSI CYBORG
