@@ -8,6 +8,7 @@ import gui.*;
 import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import invenry.inventry_Manage;
+import java.awt.geom.RoundRectangle2D;
 
 /**
  *
@@ -19,7 +20,9 @@ public class select_user extends javax.swing.JFrame {
      * Creates new form select_user
      */
     public select_user() {
+        setUndecorated(true);
         initComponents();
+        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
     }
 
     /**

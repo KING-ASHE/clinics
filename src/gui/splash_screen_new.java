@@ -150,7 +150,7 @@ public class splash_screen_new extends javax.swing.JFrame {
         
             ResultSet resultSet = statement.executeQuery("SELECT 1");
             if (resultSet.next()) {
-                System.out.println("Database connected successfully!");
+                
                 connection.close();
                 return true;
             }
