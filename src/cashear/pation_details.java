@@ -161,6 +161,9 @@ public class pation_details extends javax.swing.JPanel {
         jLabel118 = new javax.swing.JLabel();
         serc_bar = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        serc_bar1 = new javax.swing.JTextField();
+        jLabel121 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jLabel194 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
@@ -204,6 +207,38 @@ public class pation_details extends javax.swing.JPanel {
             }
         });
         pation_details.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 30, 90, 30));
+
+        serc_bar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                serc_bar1MouseClicked(evt);
+            }
+        });
+        serc_bar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serc_bar1ActionPerformed(evt);
+            }
+        });
+        serc_bar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                serc_bar1KeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                serc_bar1KeyTyped(evt);
+            }
+        });
+        pation_details.add(serc_bar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 30, 200, 30));
+
+        jLabel121.setFont(new java.awt.Font("Segoe UI Semibold", 1, 24)); // NOI18N
+        jLabel121.setText("Patient Details");
+        pation_details.add(jLabel121, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jButton7.setText("Search");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        pation_details.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1490, 30, 90, 30));
 
         jLabel194.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel194.setText("Patient States");
@@ -378,13 +413,35 @@ public class pation_details extends javax.swing.JPanel {
         addSearchBarListener();
     }//GEN-LAST:event_serc_barKeyTyped
 
+    private void serc_bar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_serc_bar1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serc_bar1MouseClicked
+
+    private void serc_bar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serc_bar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serc_bar1ActionPerformed
+
+    private void serc_bar1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_serc_bar1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serc_bar1KeyPressed
+
+    private void serc_bar1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_serc_bar1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serc_bar1KeyTyped
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
     private javax.swing.JLabel jLabel194;
     private javax.swing.JLabel jLabel199;
     private javax.swing.JLabel jLabel200;
@@ -393,5 +450,6 @@ public class pation_details extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> pation_active;
     private javax.swing.JPanel pation_details;
     private javax.swing.JTextField serc_bar;
+    private javax.swing.JTextField serc_bar1;
     // End of variables declaration//GEN-END:variables
 }
