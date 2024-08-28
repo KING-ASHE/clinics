@@ -23,7 +23,7 @@ public class casher_dash extends javax.swing.JFrame {
     public void get(String reg_n, String nic, String name, String l_name, String payment) {
 
         nic_n.setText(nic);
-        f_name_lname.setText(name+" "+l_name);
+        f_name_lname.setText(name + " " + l_name);
         reg.setText(reg_n);
 
         System.out.println("Registration Number: " + reg_n);
@@ -895,8 +895,6 @@ public class casher_dash extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-
-       
         select_pations select_p = new select_pations(this, true);
 
         select_p.setVisible(true);

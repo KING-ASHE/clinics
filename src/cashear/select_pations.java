@@ -29,9 +29,7 @@ public class select_pations extends javax.swing.JDialog {
         selectuser_tabele();
     }
 
-    select_pations() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
 
     private void selectuser_tabele() {
         try {
