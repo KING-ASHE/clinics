@@ -4,8 +4,11 @@
  */
 package invenry;
 
-import gui.*;
+import java.util.Vector;
+import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 import login.select_user;
+import model.MySQL;
 
 /**
  *
@@ -13,9 +16,45 @@ import login.select_user;
  */
 public class inventry_Manage extends javax.swing.JFrame {
 
-  
     public inventry_Manage() {
         initComponents();
+        loadInventory();
+    }
+
+    public void loadInventory() {
+        try {
+
+            String query = "SELECT * FROM inventory "
+                    + "INNER JOIN medicine_type ON inventory.medicine_type_id=medicine_type.id "
+                    + "INNER JOIN qty_type ON inventory.qty_type_id=qty_type.id "
+                    + "INNER JOIN status ON inventory.status_id=`status`.id ORDER BY inventory.id ASC";
+
+            ResultSet rs = MySQL.execute(query);
+
+            DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+            dtm.setRowCount(0);
+
+            while (rs.next()) {
+                Vector<String> v = new Vector<>();
+                v.add(rs.getString("inventory.id"));
+                v.add(rs.getString("inventory.name"));
+                v.add(rs.getString("medicine_type.type"));
+                v.add(rs.getString("inventory.size"));
+                v.add(rs.getString("qty_type.qty_type_name"));
+                v.add(rs.getString("inventory.qty"));
+                v.add(rs.getString("inventory.buying_price"));
+                v.add(rs.getString("inventory.selling_price"));
+                v.add(rs.getString("inventory.added_time"));
+                v.add(rs.getString("inventory.exp_date"));
+                v.add(rs.getString("status.status"));
+
+                dtm.addRow(v);
+            }
+            jTable1.setModel(dtm);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -28,18 +67,18 @@ public class inventry_Manage extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 58)); // NOI18N
-        jLabel1.setText("Comming Soon !");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 288, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8-back-arrow-30.png"))); // NOI18N
         jLabel4.setText(" Back");
@@ -51,7 +90,45 @@ public class inventry_Manage extends javax.swing.JFrame {
         });
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1140, 630));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Medicine Id", "Medicine Name", "Medicine Type", "Size", "Quantity_type", "Quantity", "Buying Price", "Selling Price", "Added Date", "Expire Date", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 1060, 490));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 220, 30));
+
+        jButton2.setText("Search");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 120, 30));
+
+        jButton3.setText("Add Product");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(895, 10, 170, 30));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 600));
 
         pack();
         setLocationRelativeTo(null);
@@ -63,6 +140,29 @@ public class inventry_Manage extends javax.swing.JFrame {
         select_user selectU = new select_user();
         selectU.setVisible(true);
     }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        add_medicine addm = new add_medicine(this, true);
+        addm.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
+        int row = jTable1.getSelectedRow();
+        String ID = String.valueOf(jTable1.getValueAt(row, 0));
+
+        if (evt.getClickCount() == 1) {
+//            delete product function
+
+        } else if (evt.getClickCount() == 2) {
+            dispose();
+            edit_medicine editm = new edit_medicine(this, true, ID);
+            editm.setVisible(true);
+        }
+
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -101,8 +201,12 @@ public class inventry_Manage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

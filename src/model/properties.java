@@ -1,11 +1,18 @@
 package Model;
 
 public class properties {
+    
     private static final String host = "localhost";
     private static final String port = "3306";
     private static final String database = "surabe_new";
     private static final String username = "root";
-    private static final String password = "Lochana5712@";
+    private static final String password = "ashendil2005";
+    
+//    private static final String host = "localhost";
+//    private static final String port = "3306";
+//    private static final String database = "surabe_new";
+//    private static final String username = "root";
+//    private static final String password = "Lochana5712@";
     
 //    private static final String host = "surabeclinic.com";
 //    private static final String port = "";

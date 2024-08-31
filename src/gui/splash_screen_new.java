@@ -1,4 +1,3 @@
-
 package gui;
 
 import Model.logs;
@@ -14,14 +13,12 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.logging.Level;
 
-
 public class splash_screen_new extends javax.swing.JFrame {
-
 
     public splash_screen_new() {
         initComponents();
         setBackground(new Color(0, 0, 0, 0));
-        
+
         try {
             logs.startLogger();
         } catch (Exception e) {
@@ -30,7 +27,6 @@ public class splash_screen_new extends javax.swing.JFrame {
 
     }
 
- 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,8 +63,8 @@ public class splash_screen_new extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   public static void main(String args[]) {
-        
+    public static void main(String args[]) {
+
         FlatMacDarkLaf.setup();
 
         splash_screen_new spwindow = new splash_screen_new();
@@ -137,20 +133,21 @@ public class splash_screen_new extends javax.swing.JFrame {
     }
 
     private static boolean connectToDatabase() {
-        
-        
+
         try {
-            
+
             Class.forName("com.mysql.cj.jdbc.Driver");
+
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/surabe_new", "root", "ashendil2005");
             
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/surabe_new", "root", "Lochana5712@");
+//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/surabe_new", "root", "Lochana5712@");
 //           Connection connection = DriverManager.getConnection("jdbc:mysql://" + ((properties.getPort() == "") ? "" + properties.getHost() + "" : ":" + properties.getHost() + properties.getPort() + "") + "/" + properties.getDatabase(), properties.getUsername(), properties.getPassword());
 
             Statement statement = connection.createStatement();
-        
+
             ResultSet resultSet = statement.executeQuery("SELECT 1");
             if (resultSet.next()) {
-                
+
                 connection.close();
                 return true;
             }
